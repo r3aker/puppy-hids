@@ -1,0 +1,22 @@
+db.config:集合
+type serverConfig struct {
+  Learn bool `bson:"file"`
+  OfflineCheck bool `bson:"offlinecheck"`
+  BlackList blackList
+  WhiteList whiteList
+
+  Private string `bson:"privatekey"`
+  Cert string `bson:"cert"`
+}
+type whiteList struct {
+	File []string `bson:"file"`
+	IP []string `bson:"ip"`
+	Process []string `bson:"process"`
+	Other []string `bson:"other"`
+}
+type blackList struct {
+	File []string `bson:"file"`
+	IP []string `bson:"ip"`
+	Process []string `bson:"process"`
+	Other []string `bson:"other"`
+}

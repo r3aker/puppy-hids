@@ -1,0 +1,212 @@
+//记录上传的数据类型
+[
+  // docker的 文件写入在：
+  // /var/lib/docker/overlay2/f553c1fceb7ba14cc8cda6e7f4aba27493c11f3c34cfa05d44ce5c70d97233d8/diff/etc/systemd/ 和 xxx merged
+  {
+    "IP": "xxxx",
+    "Type": "file",
+    "System": "linux",
+    "Data": [
+      {
+        "action": "Write",
+        "path": "xxxx",
+        "hash": "xxxx",
+        "user": "xxxx",
+        "time": "xxxx"
+      }
+    ]
+  },
+  // /proc/pid/cgroud 下能够看到进程是属于docker | 宿主主机
+  {
+    "IP": "XXX",
+    "Type": "process",
+    "System": "linux",
+    "Data": [
+      {
+        "auid": "xxx",
+        "uid": "xxx",
+        "gid": "xxxx",
+        "euid": "xxx",
+        "suid": "xxx",
+        "pip": "xxx",
+        "name": "xxxxx",
+        "path": "xxx",
+        "ppid": "xxxx",
+        "pname": "xxxx",
+        "ppath": "xxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "audit_config_change",
+    "System": "linux",
+    "Data": [
+      {
+        "auid": "xxx",
+        "op": "xxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "userlist",
+    "System": "linux",
+    "Data": [
+      {
+        "name":"xxx",
+        "uid": "xxx",
+        "gid": "xxx",
+        "description":"xxxx"
+      }
+    ]
+  },
+  // net/ns 隔离，通过/proc/pid/net/tcp 查看docker 的网络连接，宿主主机/proc/net/tcp 是看不到 docker容器的连接的
+  {
+    "IP": "xxx",
+    "Type": "connnection",
+    "System": "linux",
+    "Data": [
+      {
+        "cmdline": "curl www.taobao.com",
+        "dir": "out",
+        "local": "192.168.8.114:56060",
+        "remote": "111.164.16.233",
+        "protocol": "tcp",
+        "name": "curl",
+        "path": "/home/thonsun",
+        "pid": "49925",
+        "ctype": "docker"
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "IP": "xxxx",
+    "Type": "process",
+    "System": "linux|window",
+    "Data": [
+      {
+        "name": "xxxx",
+        "command": "xxxx",
+        "pid": "xxx",
+        "parentname": "xxxx",
+        "ppid": "xxxx",
+        "info": "xxxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "connection",
+    "System": "linux|window",
+    "Data": [
+      {
+        "dir": "out|in",
+        "protocol": "udp|tcp",
+        "remote": "ip:port",
+        "local": "ip:port",
+        "pid": "xxx",
+        "name": "xxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "listening",
+    "System": "linux|window",
+    "Data": [
+      {
+        "proto": "TCP",
+        "address": "0.0.0.0",
+        "pid": "xx",
+        "name": "xxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "crontab",
+    "System": "linux|window",
+    "Data": [
+      {
+        "command": "xxx",
+        "user": "xxxx",
+        "rule": "xxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "loginlog",
+    "System": "linux|window",
+    "Data": [
+      {
+        "status": true | false,
+        "remote": "xxx",
+        "username": "xxx",
+        "time": "xxxx"
+      }
+    ]
+  },
+  {
+    "IP": "xxxx",
+    "Type": "processlist",
+    "System": "linux|window",
+    "Data": [
+      {
+        "pid": "xx",
+        "ppid": "xxx",
+        "name": "xxx",
+        "command": "xxxx"
+      }
+    ]
+  }
+]

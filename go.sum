@@ -1,0 +1,6 @@
+github.com/kardianos/service v1.1.0 h1:QV2SiEeWK42P0aEmGcsAgjApw/lRxkwopvT+Gu6t1/0=
+github.com/kardianos/service v1.1.0/go.mod h1:RrJI2xn5vve/r32U5suTbeaSGoMU6GbNPoj36CVYcHc=
+github.com/seago/go-colortext v0.0.0-20140408115601-27229eb347e5 h1:Ue3LBjyx4e7Y2MnfxR5A0WYuwIeXFxS1nilYcuE4kp8=
+github.com/seago/go-colortext v0.0.0-20140408115601-27229eb347e5/go.mod h1:4XD3q6KycdxRcbZ/OyOjGb5F1IN1FNaZ6B+8VFDMcl0=
+golang.org/x/sys v0.0.0-20190204203706-41f3e6584952 h1:FDfvYgoVsA7TTZSbgiqjAbfPbK47CNHdWl3h/PJtii0=
+golang.org/x/sys v0.0.0-20190204203706-41f3e6584952/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=

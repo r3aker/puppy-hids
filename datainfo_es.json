@@ -1,0 +1,57 @@
+[
+  {
+    "datatype": "process",
+    "ip": "10.225.98.221",
+    "data": {
+      "auid": "4294967295",
+      "cmdline": "/bin/bash\u0000/etc/sysop/juno/lib/firmware/entrance.sh\u0000--report\u0000ipmi_sel_log\u0000ipmi_sensor_log\u0000",
+      "comm": "bash",
+      "epoch": "1590728633.496",
+      "euid": "0",
+      "exit": "0",
+      "gid": "0",
+      "key": "proc_create",
+      "logid": "3518695",
+      "name": "/bin/bash",
+      "path": "/",
+      "pcmdline": "juno\u0000firmware\u0000--report\u0000ipmi_sel_log\u0000ipmi_sensor_log\u0000",
+      "pid": "2142143",
+      "pname": "juno\n",
+      "ppath": "/",
+      "ppid": "2142137",
+      "success": "yes",
+      "suid": "0",
+      "syscall_id": "59",
+      "uid": "0"
+    },
+    "time": "2020-05-29T13:03:53+08:00"
+  },
+  {
+    "datatype": "file",
+    "ip": "10.225.124.211",
+    "data": {
+      "action": "CHMOD",
+      "hash": "046293ab9f9b76945456f2d68274604c",
+      "path": "/etc/resolv.conf.dhclient-new.2883572",
+      "user": "root"
+      },
+    "time": "2020-05-29T07:40:49+08:00"
+  },
+  {
+    "datatype": "connection",
+    "ip": "10.227.18.247",
+    "data": {
+      "cmdline": "curl\u0000www.taobao.com\u0000",
+      "ctype": "host",
+      "dir": "out",
+      "local": "10.227.18.247:56844",
+      "name": "curl\n",
+      "path": "/data00/home/tangsheng.thonsun",
+      "pid": "1293561",
+      "port": "80",
+      "protocol": "tcp",
+      "remote": "103.15.99.90"
+    },
+    "time": "2020-05-29T20:38:31+08:00"
+  },
+]
