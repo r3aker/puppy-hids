@@ -1,4 +1,4 @@
-module github.com/thonsun/puppy-hids/web
+module puppy-hids/web
 
 go 1.14
 

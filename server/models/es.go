@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/thonsun/puppy-hids/server/utils"
+	"puppy-hids/server/utils"
 	"context"
 	"encoding/json"
 	"github.com/olivere/elastic"

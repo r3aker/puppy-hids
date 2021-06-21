@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/thonsun/puppy-hids/agent/common/log"
+	"puppy-hids/agent/common/log"
 	"testing"
 )
 

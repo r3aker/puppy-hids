@@ -1,8 +1,8 @@
 package common
 
 import (
-	"github.com/thonsun/puppy-hids/web/common/log"
-	"github.com/thonsun/puppy-hids/web/models"
+	"puppy-hids/web/common/log"
+	"puppy-hids/web/models"
 	"crypto/md5"
 	"fmt"
 	"gopkg.in/mgo.v2"

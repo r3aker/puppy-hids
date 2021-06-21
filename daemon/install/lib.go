@@ -1,8 +1,6 @@
 package install
 
 import (
-	"github.com/thonsun/puppy-hids/daemon/common"
-	"github.com/thonsun/puppy-hids/daemon/log"
 	"crypto/md5"
 	"encoding/json"
 	"errors"
@@ -13,6 +11,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"puppy-hids/daemon/common"
+	"puppy-hids/daemon/log"
 )
 
 //下载agent 文件到指定位置，并更改权限
@@ -30,7 +30,7 @@ func downFile(url string, savepath string) error {
 		os.Chmod(savepath, 0750) // 配置运行权限
 
 		fileInfo, err := os.Stat(savepath)
-		log.Debug("agent download status:%v %v",res.ContentLength, fileInfo.Size())
+		log.Debug("agent download status:%v %v", res.ContentLength, fileInfo.Size())
 		if err != nil || fileInfo.Size() != res.ContentLength {
 			log.Debug("File download error: %v", err.Error())
 			return errors.New("downfile error")
@@ -57,7 +57,7 @@ func copyMe(installPath string) (err error) {
 		// 相同目录不用复制
 		return nil
 	}
-	src, err := os.Open(mepath)// 找到自身文件所在位置
+	src, err := os.Open(mepath) // 找到自身文件所在位置
 	if err != nil {
 		return err
 	}
@@ -78,7 +78,7 @@ func copyMe(installPath string) (err error) {
 func DownAgent(ip string, agentPath string, arch string) error {
 	var err error
 	url := fmt.Sprintf("%s://%s/json/download", common.Proto, ip)
-	log.Debug("agent download:%s",url)
+	log.Debug("agent download:%s", url)
 
 	// Agent 下载检查和重试, 重试三次，功能性考虑
 	times := 3
@@ -130,10 +130,10 @@ func CheckAgentHash(fileHash string, ip string, arch string) (is bool) {
 		return false
 	}
 	var result string
-	err = json.Unmarshal(resp,&result)
+	err = json.Unmarshal(resp, &result)
 	if err != nil {
 		return false
 	}
-	log.Debug("recieve from web md5:%s",result)
+	log.Debug("recieve from web md5:%s", result)
 	return "1" == string(result)
 }

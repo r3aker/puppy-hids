@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/thonsun/puppy-hids/server/utils"
+	"puppy-hids/server/utils"
 	"flag"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"

@@ -1,9 +1,9 @@
 package safecheck
 
 import (
-	"github.com/thonsun/puppy-hids/server/action"
-	"github.com/thonsun/puppy-hids/server/models"
-	"github.com/thonsun/puppy-hids/server/utils"
+	"puppy-hids/server/action"
+	"puppy-hids/server/models"
+	"puppy-hids/server/utils"
 	"encoding/json"
 	"fmt"
 	"gopkg.in/mgo.v2"

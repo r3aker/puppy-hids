@@ -1,8 +1,8 @@
 package safecheck
 
 import (
-	"github.com/thonsun/puppy-hids/server/models"
-	"github.com/thonsun/puppy-hids/server/utils"
+	"puppy-hids/server/models"
+	"puppy-hids/server/utils"
 	"github.com/paulstuart/ping"
 	"fmt"
 	"gopkg.in/mgo.v2/bson"

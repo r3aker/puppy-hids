@@ -3,8 +3,8 @@
 package collect
 
 import (
-	"github.com/thonsun/puppy-hids/agent/common/log"
 	"io/ioutil"
+	"puppy-hids/agent/common/log"
 	"strings"
 )
 

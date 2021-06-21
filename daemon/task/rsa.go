@@ -1,8 +1,6 @@
 package task
 
 import (
-	"github.com/thonsun/puppy-hids/daemon/common"
-	"github.com/thonsun/puppy-hids/daemon/log"
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/json"
@@ -10,6 +8,8 @@ import (
 	"errors"
 	"io/ioutil"
 	"math/big"
+	"puppy-hids/daemon/common"
+	"puppy-hids/daemon/log"
 )
 
 func setPublicKey() {

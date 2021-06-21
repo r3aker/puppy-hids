@@ -33,12 +33,12 @@ const (
 )
 
 type Logger struct {
-	mu sync.Mutex //ensures atomic writes; protects the following fields
-	prefix string //prefix to write at beginning of each line
-	flag int //properties
-	out io.Writer //destination for output
-	buf []byte //for accumulating text to write
-	level int //One of DEBUG, ERROR, INFO
+	mu     sync.Mutex //ensures atomic writes; protects the following fields
+	prefix string     //prefix to write at beginning of each line
+	flag   int        //properties
+	out    io.Writer  //destination for output
+	buf    []byte     //for accumulating text to write
+	level  int        //One of DEBUG, ERROR, INFO
 }
 
 const (
@@ -64,7 +64,7 @@ func (l *Logger) SetOutput(w io.Writer) {
 	l.out = w
 }
 
-var std = New(os.Stderr, "", LstdFlags | Lshortfile)
+var std = New(os.Stderr, "", LstdFlags|Lshortfile)
 
 // Cheap integer to fixed-width decimal ASCII. Give a negative width to avoid zero-padding.
 func itoa(buf *[]byte, i int, wid int) {
@@ -367,9 +367,7 @@ func Output(calldepth int, s string) error {
 	return std.Output(calldepth+1, s) // +1 for this frame.
 }
 
-
-
-func Error(format string,v ...interface{}) {
+func Error(format string, v ...interface{}) {
 	if std.level <= ERROR {
 		ct.ChangeColor(ct.Red, true, ct.None, false)
 		s := fmt.Sprintf("ERROR: "+format, v...)
@@ -385,7 +383,7 @@ func Info(format string, v ...interface{}) {
 	}
 }
 
-func Debug(format string,v ...interface{}) {
+func Debug(format string, v ...interface{}) {
 	if std.level <= DEBUG {
 		s := fmt.Sprintf("DEBUG: "+format, v...)
 		std.Output(2, s)
@@ -395,4 +393,3 @@ func Debug(format string,v ...interface{}) {
 func SetLogLevel(lvl int) {
 	std.level = lvl
 }
-

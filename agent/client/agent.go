@@ -1,11 +1,6 @@
 package client
 
 import (
-	"github.com/thonsun/puppy-hids/agent/collect"
-	"github.com/thonsun/puppy-hids/agent/common"
-	"github.com/thonsun/puppy-hids/agent/config"
-	"github.com/thonsun/puppy-hids/agent/monitor"
-	"github.com/thonsun/puppy-hids/agent/common/log"
 	"context"
 	"crypto/tls"
 	"encoding/json"
@@ -15,6 +10,11 @@ import (
 	"io/ioutil"
 	"net"
 	"net/http"
+	"puppy-hids/agent/collect"
+	"puppy-hids/agent/common"
+	"puppy-hids/agent/common/log"
+	"puppy-hids/agent/config"
+	"puppy-hids/agent/monitor"
 	"runtime"
 	"strings"
 	"sync"

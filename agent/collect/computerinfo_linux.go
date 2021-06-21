@@ -3,7 +3,7 @@
 package collect
 
 import (
-	"github.com/thonsun/puppy-hids/agent/common"
+	"puppy-hids/agent/common"
 	"io/ioutil"
 	"os"
 	"strings"

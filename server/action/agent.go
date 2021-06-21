@@ -1,8 +1,8 @@
 package action
 
 import (
-	"github.com/thonsun/puppy-hids/server/models"
-	"github.com/thonsun/puppy-hids/server/utils"
+	"puppy-hids/server/models"
+	"puppy-hids/server/utils"
 	"gopkg.in/mgo.v2/bson"
 )
 type client struct {//mongodb data

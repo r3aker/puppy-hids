@@ -1,7 +1,7 @@
 package action
 
 import (
-	"github.com/thonsun/puppy-hids/server/models"
+	"puppy-hids/server/models"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"

@@ -4,7 +4,7 @@ import "gopkg.in/mgo.v2"
 
 func conn(dbname string) (*mgo.Database, error) {
 	info := mgo.DialInfo{
-		Addrs:          []string{mongodeploy},
+		Addrs:          []string{mongohome},
 		Username:       "root",
 		Password:       "root",
 	}

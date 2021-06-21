@@ -1,17 +1,17 @@
 package task
 
 import (
-	"github.com/thonsun/puppy-hids/daemon/common"
-	"github.com/thonsun/puppy-hids/daemon/log"
 	"encoding/json"
+	"puppy-hids/daemon/common"
+	"puppy-hids/daemon/log"
 	"syscall"
 )
 
 // task 接收server 指令
 type Task struct {
-	Type string
+	Type    string
 	Command string
-	Result map[string]string
+	Result  map[string]string
 }
 
 func (t *Task) Run() []byte {
@@ -33,7 +33,7 @@ func (t *Task) Run() []byte {
 	}
 
 	var sendResult []byte
-	if b,err := json.Marshal(t.Result);err == nil{
+	if b, err := json.Marshal(t.Result); err == nil {
 		msg := string(b) + "\n"
 		sendResult = []byte(msg)
 	}
@@ -47,7 +47,7 @@ func (t *Task) reload() {
 	// 服务的for 循环会重启agent
 	// TODO:重启有问题
 	if err := common.KillAgent(); err != nil {
-		log.Debug("reload error:%v",err)
+		log.Debug("reload error:%v", err)
 		t.Result["status"] = "false"
 		t.Result["data"] = err.Error()
 	}
@@ -56,7 +56,7 @@ func (t *Task) stop() {
 	//这个退出应该是退去agent 监控，实施agent 性能降级
 	t.Result["status"] = "true"
 	t.Result["data"] = "stop agent successful"
-	log.Debug("task stop:agent status %v",common.AgentStatus)
+	log.Debug("task stop:agent status %v", common.AgentStatus)
 	if common.AgentStatus {
 		common.Cmd.Process.Signal(syscall.SIGSTOP)
 	}
@@ -66,7 +66,7 @@ func (t *Task) stop() {
 func (t *Task) continve() {
 	t.Result["status"] = "true"
 	t.Result["data"] = "continue agent successful"
-	log.Debug("task continue:agent status %v",common.AgentStatus)
+	log.Debug("task continue:agent status %v", common.AgentStatus)
 	if common.AgentStatus {
 		common.Cmd.Process.Signal(syscall.SIGCONT)
 	}
@@ -75,7 +75,7 @@ func (t *Task) continve() {
 func (t *Task) kill() {
 	// 可以杀死主机任意进程名
 	// 已经成功kill 没有返回数据
-	log.Debug("task kill process:%v",t.Command)
+	log.Debug("task kill process:%v", t.Command)
 	KillProcess(t.Command)
 	t.Result["status"] = "true"
 	t.Result["data"] = "ok"
@@ -105,7 +105,7 @@ func (t *Task) update() {
 }
 
 func (t *Task) exec() {
-	log.Debug("task exec:%v",t.Command)
+	log.Debug("task exec:%v", t.Command)
 	if dat, err := common.CmdExec(t.Command); err == nil {
 		t.Result["status"] = "true"
 		t.Result["data"] = dat

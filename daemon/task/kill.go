@@ -1,8 +1,8 @@
 package task
 
 import (
-	"github.com/thonsun/puppy-hids/daemon/common"
 	"fmt"
+	"puppy-hids/daemon/common"
 	"regexp"
 )
 

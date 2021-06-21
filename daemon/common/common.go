@@ -1,13 +1,13 @@
 package common
 
 import (
-	"github.com/thonsun/puppy-hids/daemon/log"
 	"crypto/tls"
 	"fmt"
 	"github.com/kardianos/service"
 	"io/ioutil"
 	"net/http"
 	"os/exec"
+	"puppy-hids/daemon/log"
 	"strings"
 	"sync"
 	"time"
@@ -35,9 +35,10 @@ var (
 	// Proto 请求协议，测试模式为HTTP
 	Proto string
 )
+
 //结束agent
 func KillAgent() error {
-	log.Debug("puppy-hids agent status:%v",AgentStatus)
+	log.Debug("puppy-hids agent status:%v", AgentStatus)
 	if AgentStatus {
 		log.Debug("start to kill agent process")
 		return Cmd.Process.Kill()
@@ -49,7 +50,7 @@ func init() {
 	M = new(sync.Mutex)
 	if TESTMODE {
 		Proto = "http"
-	}else {
+	} else {
 		Proto = "https"
 	}
 	InstallPath = `/usr/puppy-hids/`
@@ -66,8 +67,7 @@ func init() {
 	}
 }
 
-
-func CmdExec(cmd string) (string, error){
+func CmdExec(cmd string) (string, error) {
 	var c *exec.Cmd
 	var data string
 	c = exec.Command("/bin/sh", "-c", cmd)
@@ -111,16 +111,16 @@ func BindAddr() string {
 	//url := fmt.Sprintf("%s:65512", localAddr[0:idx])
 	//log.Debug("bind tcp socket:%v",url)
 	var ip string
-	request, _ := http.NewRequest("GET", fmt.Sprintf("http://%s/json/getip",WebIP), nil)
+	request, _ := http.NewRequest("GET", fmt.Sprintf("http://%s/json/getip", WebIP), nil)
 	request.Close = true
 	if res, err := HTTPClient.Do(request); err == nil {
 		defer res.Body.Close()
 		result, err := ioutil.ReadAll(res.Body)
-		if err != nil{
+		if err != nil {
 			return ""
 		}
 		ip = string(result)
 	}
-	log.Debug("get local ip:%v",ip)
-	return fmt.Sprintf("%s:65512",ip)
+	log.Debug("get local ip:%v", ip)
+	return fmt.Sprintf("%s:65512", ip)
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/thonsun/puppy-hids/agent/client"
-	"github.com/thonsun/puppy-hids/agent/common/log"
-	"github.com/thonsun/puppy-hids/agent/config"
+	"puppy-hids/agent/client"
+	"puppy-hids/agent/common/log"
+	"puppy-hids/agent/config"
 	"fmt"
 	"os"
 )

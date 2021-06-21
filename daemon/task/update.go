@@ -1,13 +1,13 @@
 package task
 
 import (
-	"github.com/thonsun/puppy-hids/daemon/common"
-	"github.com/thonsun/puppy-hids/daemon/install"
-	"github.com/thonsun/puppy-hids/daemon/log"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"puppy-hids/daemon/common"
+	"puppy-hids/daemon/install"
+	"puppy-hids/daemon/log"
 	"time"
 )
 
@@ -16,7 +16,7 @@ func agentUpdate(ip string, installPath string, arch string) (bool, error) {
 	var agentFilePath string
 	var md5str string
 	agentFilePath = installPath + "agent"
-	md5str,err = install.FileMD5String(agentFilePath)
+	md5str, err = install.FileMD5String(agentFilePath)
 	if err == nil {
 		checkURL := fmt.Sprintf("%s://%s/json/check?md5=%s", common.Proto, ip, md5str)
 		log.Debug("Start to get url: %s", checkURL)
@@ -29,13 +29,13 @@ func agentUpdate(ip string, installPath string, arch string) (bool, error) {
 			return false, err
 		}
 		var result string
-		err = json.Unmarshal(resp,&result)
-		if err != nil{
-			return false,err
+		err = json.Unmarshal(resp, &result)
+		if err != nil {
+			return false, err
 		}
-		log.Debug("check version result:%v",string(result))
+		log.Debug("check version result:%v", string(result))
 		if string(result) == "1" { // daemon 中agent 版本和 服务器一致，不需要download 进行升级
-				return false,nil
+			return false, nil
 		} else {
 			common.M.Lock()
 			defer common.M.Unlock()
@@ -47,7 +47,7 @@ func agentUpdate(ip string, installPath string, arch string) (bool, error) {
 					log.Debug("Download replacement success")
 					return true, nil
 				}
-			return false, err
+				return false, err
 			}
 		}
 	}

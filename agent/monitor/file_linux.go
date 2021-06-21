@@ -3,8 +3,8 @@
 package monitor
 
 import (
-	"github.com/thonsun/puppy-hids/agent/common"
-	"github.com/thonsun/puppy-hids/agent/common/log"
+	"puppy-hids/agent/common"
+	"puppy-hids/agent/common/log"
 	"errors"
 	"fmt"
 	"github.com/fsnotify/fsnotify"

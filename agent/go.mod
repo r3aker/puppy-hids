@@ -1,4 +1,4 @@
-module github.com/thonsun/puppy-hids/agent
+module puppy-hids/agent
 
 go 1.14
 

@@ -1,9 +1,6 @@
 package routers
 
 import (
-	"github.com/thonsun/puppy-hids/web/common"
-	"github.com/thonsun/puppy-hids/web/common/log"
-	"github.com/thonsun/puppy-hids/web/setting"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"gopkg.in/mgo.v2/bson"
@@ -11,6 +8,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"puppy-hids/web/common"
+	"puppy-hids/web/common/log"
+	"puppy-hids/web/setting"
 	"time"
 )
 

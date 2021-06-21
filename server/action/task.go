@@ -2,8 +2,8 @@ package action
 
 import (
 	"bufio"
-	"github.com/thonsun/puppy-hids/server/models"
-	"github.com/thonsun/puppy-hids/server/utils"
+	"puppy-hids/server/models"
+	"puppy-hids/server/utils"
 	"encoding/base64"
 	"encoding/json"
 	"gopkg.in/mgo.v2"

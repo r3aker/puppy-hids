@@ -8,5 +8,5 @@ import (
 func TestKillProcess(t *testing.T) {
 	data := KillProcess("top")
 
-	fmt.Print(data,len(data))
+	fmt.Print(data, len(data))
 }

@@ -8,7 +8,7 @@ import (
 )
 
 func TestBindAddr(t *testing.T) {
-	conn, _ := net.Dial("udp", fmt.Sprintf("%s:http","test.example.com"))
+	conn, _ := net.Dial("udp", fmt.Sprintf("%s:http", "test.example.com"))
 	defer conn.Close()
 	localAddr := conn.LocalAddr().String()
 	idx := strings.LastIndex(localAddr, ":")

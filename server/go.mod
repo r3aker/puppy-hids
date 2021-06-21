@@ -1,4 +1,4 @@
-module github.com/thonsun/puppy-hids/server
+module puppy-hids/server
 
 go 1.14
 

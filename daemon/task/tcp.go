@@ -2,12 +2,12 @@ package task
 
 import (
 	"bufio"
-	"github.com/thonsun/puppy-hids/daemon/common"
-	"github.com/thonsun/puppy-hids/daemon/log"
 	"encoding/base64"
 	"encoding/json"
 	"io/ioutil"
 	"net"
+	"puppy-hids/daemon/common"
+	"puppy-hids/daemon/log"
 	"strings"
 )
 
@@ -19,7 +19,7 @@ type taskServer struct {
 
 func (t *taskServer) listen() (err error) {
 	// 采用http get 获取server 的公钥 进行双方命令，安全在于 http -> 客户端认证http的证书
-	log.Debug("daemon bind socket:%v",common.BindAddr())
+	log.Debug("daemon bind socket:%v", common.BindAddr())
 	t.TCPListener, err = net.Listen("tcp", common.BindAddr())
 	return err
 }
@@ -74,7 +74,7 @@ func (t *taskServer) tcpPipe(conn net.Conn) {
 	if err != nil {
 		return
 	}
-	decodeBytes, _ := base64.RawStdEncoding.DecodeString(string(message))// 防止 加密 byte 不能正确传输
+	decodeBytes, _ := base64.RawStdEncoding.DecodeString(string(message)) // 防止 加密 byte 不能正确传输
 	decryptdata, err := rsaDecrypt(decodeBytes)
 	if err != nil {
 		log.Debug("Decrypt rsa text in tcpPipe error:", err.Error())
@@ -96,7 +96,7 @@ func (t *taskServer) tcpPipe(conn net.Conn) {
 	}
 	result := map[string]string{"status": "false", "data": ""}
 	T := Task{taskType, data, result}
-	log.Debug("[+]recieve task:%v %v",T.Type,T.Command)
+	log.Debug("[+]recieve task:%v %v", T.Type, T.Command)
 	if sendResult := T.Run(); len(sendResult) != 0 {
 		conn.Write(sendResult)
 	}
